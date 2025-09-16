@@ -310,8 +310,10 @@ img {
 
 /* ===== SKILLS =====*/
 .skills__container {
-  row-gap: 2rem;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
 }
 
 .skills__subtitle {
@@ -320,9 +322,8 @@ img {
 
 .skills__text {
   margin-bottom: var(--mb-4);
+  text-align: justify;
 }
-
-/* ===== SKILLS =====*/
 .skills__data {
   display: flex;
   flex-wrap: wrap;
@@ -399,12 +400,28 @@ img {
   width: 30%;
 }
 
+.skills__img {
+  border-radius: .5rem;
+  box-shadow: 0 4px 25px rgba(14, 36, 49, 0.15);
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  justify-self: center;
+}
+/* PROJECTS */
+
+.projects__container {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem; /* Increased from 2rem to 3rem */
+}
+
 .project__card {
   background: white;
   border-radius: .5rem;
   overflow: hidden;
   box-shadow: 0 4px 25px rgba(14, 36, 49, 0.15);
   transition: transform 0.3s;
+  margin-bottom: 2rem; /* Added bottom margin for more spacing */
 }
 
 .project__card:hover {
@@ -427,7 +444,6 @@ img {
 .project__card:hover .project__img img {
   transform: scale(1.1);
 }
-
 .project__overlay {
   position: absolute;
   top: 0;
@@ -630,10 +646,22 @@ img {
 }
 
 .form-message {
-  padding: 1rem;
-  border-radius: .5rem;
-  margin-top: 1rem;
-  display: none;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    display: none;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    display: block;
 }
 
 .form-message.success {
@@ -827,3 +855,18 @@ img {
     width: 450px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .skills__container {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills__img {
+    order: -1;
+    margin-bottom: 2rem;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
