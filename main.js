@@ -72,6 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Initialize EmailJS with your Public Key
+document.addEventListener('DOMContentLoaded', function() {
+    emailjs.init("_DWpHXao4PLnaotHF");
+    console.log("EmailJS initialized successfully");
+});
+
 // Contact form functionality
 const contactForm = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');
@@ -89,6 +95,7 @@ contactForm.addEventListener('submit', function(e) {
     if (name === '' || email === '' || subject === '' || message === '') {
         formMessage.textContent = 'Please fill in all fields.';
         formMessage.className = 'form-message error';
+        formMessage.style.display = 'block';
         return;
     }
     
@@ -97,22 +104,49 @@ contactForm.addEventListener('submit', function(e) {
     if (!emailPattern.test(email)) {
         formMessage.textContent = 'Please enter a valid email address.';
         formMessage.className = 'form-message error';
+        formMessage.style.display = 'block';
         return;
     }
     
-    // Simulate form submission (in a real scenario, you would send this to a server)
-    formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
-    formMessage.className = 'form-message success';
+    // Show loading state
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
     
-    // Reset form
-    contactForm.reset();
-    
-    // Hide message after 5 seconds
-    setTimeout(() => {
-        formMessage.style.display = 'none';
-    }, 5000);
+    // Send email using EmailJS
+    emailjs.send("Portfolio Contact", "template_afxcr2a", {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+        date: new Date().toLocaleString()
+    })
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
+        formMessage.className = 'form-message success';
+        formMessage.style.display = 'block';
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 5000);
+    }, function(error) {
+        console.log('FAILED...', error);
+        formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
+        formMessage.className = 'form-message error';
+        formMessage.style.display = 'block';
+    })
+    .finally(function() {
+        // Restore button state
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+    });
 });
-
 // CV download functionality
 document.getElementById('download-cv').addEventListener('click', async function(e) {
     e.preventDefault();
@@ -216,3 +250,4 @@ document.addEventListener('DOMContentLoaded', function() {
         bar.removeAttribute('style');
     });
 });
+
