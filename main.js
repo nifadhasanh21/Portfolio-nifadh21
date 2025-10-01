@@ -115,7 +115,7 @@ contactForm.addEventListener('submit', function(e) {
     submitButton.disabled = true;
     
     // Send email using EmailJS
-    emailjs.send("service_6q5v1wq", "template_8v0n7vq", {
+    emailjs.send("Portfolio Contact", "template_afxcr2a", {
         from_name: name,
         from_email: email,
         subject: subject,
@@ -144,7 +144,7 @@ document.getElementById('download-cv').addEventListener('click', function(e) {
     
     // Create a temporary link element
     const link = document.createElement('a');
-    link.href = 'cv.pdf'; // Replace with actual CV file path
+    link.href = '/CV..pdf'; // Replace with actual CV file path
     link.download = 'CV-Nifad Hasan Eimu.pdf';
     link.target = '_blank';
     
@@ -278,7 +278,7 @@ const projectData = {
     1: {
         title: "Portfolio Website",
         description: "A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my work and skills. This project demonstrates modern web development practices including responsive design, smooth animations, and clean code structure.",
-        technologies: ["HTML5,  ", "CSS3,  ", "JavaScript,  ", "Responsive Design"],
+        technologies: ["HTML5,  ", "CSS3,  ", "JavaScript,  ", "Responsive Design  "],
         features: ["Responsive layout", "Smooth scrolling", "Interactive elements", "Contact form"],
         liveLink: "https://nifad-hasan-h21.github.io/Portfolio-nifadh21/",
         githubLink: "https://github.com/nifad-hasan-h21/Portfolio-nifadh21",
@@ -390,4 +390,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
