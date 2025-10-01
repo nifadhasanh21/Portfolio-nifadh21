@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Nifad Hasan - Web Developer Portfolio">
+    <meta name="description" content="Nifad Hasan Eimu - Web Developer Portfolio">
     <meta name="keywords" content="web developer, portfolio, software engineer, HTML, CSS, JavaScript">
-    <meta name="author" content="Nifad Hasan">
+    <meta name="author" content="Nifad Hasan Eimu">
 
     <link rel="stylesheet" href="styles.css" />
 
@@ -17,18 +17,20 @@
 
     <link rel="shortcut icon" href="cv.png" type="image/png">
 
-
     <!-- ===== AOS ANIMATION ===== -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <title>Nifad Hasan | Web Developer</title>
+    <!-- ===== TYPED JS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <title>Nifad Hasan Eimu | Web Developer</title>
   </head>
   <body>
     <!--===== HEADER =====-->
     <header class="l-header">
       <nav class="nav bd-grid">
         <div>
-          <a href="#" class="nav__logo">Nifad Hasan</a>
+          <a href="#" class="nav__logo">Nifad Hasan Eimu</a>
         </div>
 
         <div class="nav__menu" id="nav-menu">
@@ -54,8 +56,16 @@
           </ul>
         </div>
 
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="bx bx-menu"></i>
+        <div class="nav__actions">
+          <!-- Theme Toggle -->
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="bx bx-moon"></i>
+          </button>
+          
+          <!-- Mobile Menu Toggle -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="bx bx-menu"></i>
+          </div>
         </div>
       </nav>
     </header>
@@ -65,13 +75,15 @@
       <section class="home bd-grid" id="home">
         <div class="home__data">
           <h1 class="home__title">
-            Hi,<br />I'm <span class="home__title-color">Nifad Hasan</span><br />
-            Web Developer
+            Hi,<br />I'm <span class="home__title-color" id="typed-text"></span><br />
+            <span id="typed-roles"></span>
           </h1>
           <p class="home__description">Crafting digital experiences with code and creativity</p>
 
-          <a href="#contact" class="button">Contact Me</a>
-          <a href="#projects" class="button button--light">View Projects</a>
+          <div class="home__buttons">
+            <a href="#contact" class="button">Contact Me</a>
+            <a href="#projects" class="button button--light">View Projects</a>
+          </div>
         </div>
 
         <div class="home__social">
@@ -110,10 +122,16 @@
                 x="50"
                 y="60"
                 href="IMG_2895.png"
-                alt="Nifad Hasan"
+                alt="Nifad Hasan Eimu"
               />
             </g>
           </svg>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+          <div class="scroll-indicator__text">Scroll Down</div>
+          <div class="scroll-indicator__line"></div>
         </div>
       </section>
 
@@ -127,7 +145,7 @@
           </div>
 
           <div data-aos="fade-left">
-            <h2 class="about__subtitle">I'm Nifad Hasan</h2>
+            <h2 class="about__subtitle">I'm Nifad Hasan Eimu</h2>
             <p class="about__text">
               I am a passionate Software Engineering student at Daffodil International University, 
               currently in my 4th semester. Alongside my academic journey, I'm developing my 
@@ -136,7 +154,7 @@
               I enjoy working on creative coding projects—ranging from building portfolio websites 
               and small applications to larger structured programming projects. I have hands-on 
               experience with <b>C programming, HTML, CSS, JavaScript, and SQL</b>, and I am 
-              continuously learning modern technologies like the MERN stack and Java.  
+              continuously learning modern technologies like the <b>MERN stack</b> and <b>Java.</b>  
               <br><br>
               Beyond academics, I love exploring problem-solving, working on projects that 
               challenge me, and growing into a well-rounded software engineer. My long-term goal 
@@ -152,171 +170,189 @@
       </section>
 
       <!--===== SKILLS =====-->
-      <!--===== SKILLS =====-->
-<section class="skills section" id="skills">
-  <h2 class="section-title">Skills</h2>
+      <section class="skills section" id="skills">
+        <h2 class="section-title">Skills</h2>
 
-  <div class="skills__container bd-grid">
-    <div data-aos="fade-up">
-      <h2 class="skills__subtitle">Profesional Skills</h2>
-      <p class="skills__text">
-        As a Software Engineering student, I have been building a strong foundation in 
-        both programming and web technologies. My skills include working with 
-        <b>C, HTML, CSS, JavaScript, and SQL</b>, along with a growing interest in 
-        modern stacks like <b>MERN</b> and Java.  
-        <br><br>
-        I enjoy problem-solving, creating structured and efficient code, and designing 
-        user-friendly web applications. With every project, I aim to sharpen my logical 
-        thinking, improve code quality, and move closer to becoming a professional 
-        software engineer.
-      </p>
-      
-      <div class="skills-list">
-        <div class="skills__data">
-          <div class="skills__names">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" 
-                 alt="C Logo" class="skills__icon" style="width:24px; height:24px;"/>
-            <span class="skills__name">C Programming</span>
+        <div class="skills__container bd-grid">
+          <div data-aos="fade-up">
+            <h2 class="skills__subtitle">Profesional Skills</h2>
+            <p class="skills__text">
+              As a Software Engineering student, I have been building a strong foundation in 
+              both programming and web technologies. My skills include working with 
+              <b>C, HTML, CSS, JavaScript, and SQL</b>, along with a growing interest in 
+              modern stacks like <b>MERN Stack</b> and <b>Java.</b>  
+              <br><br>
+              I enjoy problem-solving, creating structured and efficient code, and designing 
+              user-friendly web applications. With every project, I aim to sharpen my logical 
+              thinking, improve code quality, and move closer to becoming a professional 
+              software engineer.
+            </p>
+            
+            <!-- Skills Filter -->
+            <div class="skills-filter">
+              <button class="skills-filter__btn active" data-filter="all">All</button>
+              <button class="skills-filter__btn" data-filter="programming">Programming</button>
+              <button class="skills-filter__btn" data-filter="web">Web Development</button>
+              <button class="skills-filter__btn" data-filter="tools">Tools</button>
+            </div>
+            
+            <div class="skills-list">
+              <div class="skills__data" data-category="programming">
+                <div class="skills__names">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" 
+                       alt="C Logo" class="skills__icon" style="width:24px; height:24px;"/>
+                  <span class="skills__name">C Programming</span>
+                </div>
+                <span class="skills__percentage">90%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__c" data-percentage="90"></div>
+                </div>
+              </div>
+
+              <div class="skills__data" data-category="web">
+                <div class="skills__names">
+                  <i class="bx bxl-html5 skills__icon"></i>
+                  <span class="skills__name">HTML5</span>
+                </div>
+                <span class="skills__percentage">80%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__html" data-percentage="80"></div>
+                </div>
+              </div>
+
+              <div class="skills__data" data-category="web">
+                <div class="skills__names">
+                  <i class="bx bxl-css3 skills__icon"></i>
+                  <span class="skills__name">CSS3</span>
+                </div>
+                <span class="skills__percentage">70%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__css" data-percentage="70"></div>
+                </div>
+              </div>
+
+              <div class="skills__data" data-category="web">
+                <div class="skills__names">
+                  <i class="bx bxl-javascript skills__icon"></i>
+                  <span class="skills__name">JavaScript</span>
+                </div>
+                <span class="skills__percentage">35%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__js" data-percentage="35"></div>
+                </div>
+              </div>
+
+              <div class="skills__data" data-category="tools">
+                <div class="skills__names">
+                  <i class="bx bx-data skills__icon"></i>
+                  <span class="skills__name">SQL</span>
+                </div>
+                <span class="skills__percentage">70%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__sql" data-percentage="70"></div>
+                </div>
+              </div>
+
+              <div class="skills__data" data-category="tools">
+                <div class="skills__names">
+                  <i class="bx bxs-paint skills__icon"></i>
+                  <span class="skills__name">UX/UI</span>
+                </div>
+                <span class="skills__percentage">80%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__ux" data-percentage="80"></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <span class="skills__percentage">90%</span>
-          <div class="skills__bar">
-            <div class="skills__percentage-bar skills__c"></div>
+
+          <div data-aos="fade-left">
+            <img src="work3.jpg" alt="Skills illustration" class="skills__img" />
           </div>
         </div>
-
-        <div class="skills__data">
-          <div class="skills__names">
-            <i class="bx bxl-html5 skills__icon"></i>
-            <span class="skills__name">HTML5</span>
-          </div>
-          <span class="skills__percentage">60%</span>
-          <div class="skills__bar">
-            <div class="skills__percentage-bar skills__html"></div>
-          </div>
-        </div>
-
-        <div class="skills__data">
-          <div class="skills__names">
-            <i class="bx bxl-css3 skills__icon"></i>
-            <span class="skills__name">CSS3</span>
-          </div>
-          <span class="skills__percentage">30%</span>
-          <div class="skills__bar">
-            <div class="skills__percentage-bar skills__css"></div>
-          </div>
-        </div>
-
-        <div class="skills__data">
-          <div class="skills__names">
-            <i class="bx bxl-javascript skills__icon"></i>
-            <span class="skills__name">JavaScript</span>
-          </div>
-          <span class="skills__percentage">25%</span>
-          <div class="skills__bar">
-            <div class="skills__percentage-bar skills__js"></div>
-          </div>
-        </div>
-
-        <div class="skills__data">
-          <div class="skills__names">
-            <i class="bx bx-data skills__icon"></i>
-            <span class="skills__name">SQL</span>
-          </div>
-          <span class="skills__percentage">70%</span>
-          <div class="skills__bar">
-            <div class="skills__percentage-bar skills__sql"></div>
-          </div>
-        </div>
-
-        <div class="skills__data">
-          <div class="skills__names">
-            <i class="bx bxs-paint skills__icon"></i>
-            <span class="skills__name">UX/UI</span>
-          </div>
-          <span class="skills__percentage">30%</span>
-          <div class="skills__bar">
-            <div class="skills__percentage-bar skills__ux"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div data-aos="fade-left">
-      <img src="work3.jpg" alt="Skills illustration" class="skills__img" />
-    </div>
-  </div>
-</section>
+      </section>
 
       <!--===== PROJECTS =====-->
+      <section class="projects section" id="projects">
+        <h2 class="section-title">Projects</h2>
+        
+        <!-- Projects Filter -->
+        <div class="projects-filter">
+          <button class="projects-filter__btn active" data-filter="all">All</button>
+          <button class="projects-filter__btn" data-filter="web">Web</button>
+          <button class="projects-filter__btn" data-filter="c">C Programming</button>
+          <button class="projects-filter__btn" data-filter="javascript">JavaScript</button>
+        </div>
 
-<section class="projects section" id="projects">
-  <h2 class="section-title">Projects</h2>
+        <div class="projects__container bd-grid">
+          <div class="project__card" data-aos="fade-up" data-category="web javascript">
+            <div class="project__img">
+              <img src="work1.jpg" alt="Project 1" />
+              <div class="project__overlay">
+                <div class="project__links">
+                  <a href="https://nifad-hasan-h21.github.io/Portfolio-nifadh21/" class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
+                  <a href="https://github.com/nifad-hasan-h21/Portfolio-nifadh21" class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
+                  <button class="project__link project__info-btn" data-project="1"><i class="bx bx-info-circle"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="project__info">
+              <h3 class="project__title">Portfolio Website</h3>
+              <p class="project__description">A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my work and skills.</p>
+              <div class="project__tags">
+                <span class="project__tag">HTML</span>
+                <span class="project__tag">CSS</span>
+                <span class="project__tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
 
-  <div class="projects__container bd-grid">
-    <div class="project__card" data-aos="fade-up">
-  <div class="project__img">
-    <img src="work1.jpg" alt="Project 1" />
-    <div class="project__overlay">
-      <div class="project__links">
-        <a href="https://nifad-hasan-h21.github.io/Portfolio-nifadh21/" class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
-        <a href="https://github.com/nifad-hasan-h21/Portfolio-nifadh21" class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
-      </div>
-    </div>
-  </div>
-  <div class="project__info">
-    <h3 class="project__title">Portfolio Website</h3>
-    <p class="project__description">A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my work and skills.</p>
-    <div class="project__tags">
-      <span class="project__tag">HTML</span>
-      <span class="project__tag">CSS</span>
-      <span class="project__tag">JavaScript</span>
-    </div>
-  </div>
-</div>
+          <div class="project__card" data-aos="fade-up" data-aos-delay="100" data-category="c">
+            <div class="project__img">
+              <img src="work2.jpg" alt="Healthcare Management System" />
+              <div class="project__overlay">
+                <div class="project__links">
+                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System." class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
+                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System." class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
+                  <button class="project__link project__info-btn" data-project="2"><i class="bx bx-info-circle"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="project__info">
+              <h3 class="project__title">Healthcare Management System</h3>
+              <p class="project__description">A C-based application for managing patient records, appointments, and medical staff with features like add, delete, and search.</p>
+              <div class="project__tags">
+                <span class="project__tag">C Programming</span>
+                <span class="project__tag">Data Structures</span>
+                <span class="project__tag">File Handling</span>
+              </div>
+            </div>
+          </div>
 
-    <div class="project__card" data-aos="fade-up" data-aos-delay="100">
-      <div class="project__img">
-        <img src="work2.jpg" alt="Healthcare Management System" />
-        <div class="project__overlay">
-          <div class="project__links">
-            <a href="https://github.com/nifad-hasan-h21/Library-Management-System." class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
-            <a href="https://github.com/nifad-hasan-h21/Library-Management-System." class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
+          <div class="project__card" data-aos="fade-up" data-aos-delay="200" data-category="c">
+            <div class="project__img">
+              <img src="work4.jpg" alt="Library Management System" />
+              <div class="project__overlay">
+                <div class="project__links">
+                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System" class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
+                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System" class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
+                  <button class="project__link project__info-btn" data-project="3"><i class="bx bx-info-circle"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="project__info">
+              <h3 class="project__title">Library Management System</h3>
+              <p class="project__description">A comprehensive library management system built with C programming to handle books, members, and transactions efficiently.</p>
+              <div class="project__tags">
+                <span class="project__tag">C Programming</span>
+                <span class="project__tag">Data Structures</span>
+                <span class="project__tag">File Management</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="project__info">
-        <h3 class="project__title">Healthcare Management System</h3>
-        <p class="project__description">A C-based application for managing patient records, appointments, and medical staff with features like add, delete, and search.</p>
-        <div class="project__tags">
-          <span class="project__tag">C Programming</span>
-          <span class="project__tag">Data Structures</span>
-          <span class="project__tag">File Handling</span>
-        </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="project__card" data-aos="fade-up" data-aos-delay="200">
-      <div class="project__img">
-        <img src="work4.jpg" alt="Library Management System" />
-        <div class="project__overlay">
-          <div class="project__links">
-            <a href="https://github.com/nifad-hasan-h21/Library-Management-System" class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
-            <a href="https://github.com/nifad-hasan-h21/Library-Management-System" class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="project__info">
-        <h3 class="project__title">Library Management System</h3>
-        <p class="project__description">A comprehensive library management system built with C programming to handle books, members, and transactions efficiently.</p>
-        <div class="project__tags">
-          <span class="project__tag">C Programming</span>
-          <span class="project__tag">Data Structures</span>
-          <span class="project__tag">File Management</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
       <!--===== EDUCATION =====-->
       <section class="education section" id="education">
         <h2 class="section-title">Education</h2>
@@ -326,7 +362,7 @@
             <div class="education__header">
               <i class="bx bxs-graduation education__icon"></i>
               <div>
-                <h3 class="education__title">BSc in Software Engineering</h3>
+                <h3 class="education__title">B.Sc. in Software Engineering</h3>
                 <span class="education__subtitle">Daffodil International University</span>
               </div>
               <span class="education__year">2024 - Present</span>
@@ -411,9 +447,26 @@
       </section>
     </main>
 
+    <!--===== PROJECT MODAL =====-->
+    <div class="project-modal" id="project-modal">
+      <div class="project-modal__content">
+        <button class="project-modal__close" id="modal-close">
+          <i class="bx bx-x"></i>
+        </button>
+        <div class="project-modal__body">
+          <!-- Content will be loaded dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!--===== SCROLL TO TOP =====-->
+    <button class="scroll-top" id="scroll-top">
+      <i class="bx bx-chevron-up"></i>
+    </button>
+
     <!--===== FOOTER =====-->
     <footer class="footer">
-      <p class="footer__title">Nifad Hasan</p>
+      <p class="footer__title">Nifad Hasan Eimu</p>
       <div class="footer__social">
         <a href="https://www.linkedin.com/in/nifad-hasan-h21/" 
            class="footer__icon" target="_blank">
@@ -428,7 +481,7 @@
            <i class="bx bxl-github"></i>
         </a>
       </div>
-      <p class="footer__copy">&#169; 2025 Nifad Hasan. All rights reserved</p>
+      <p class="footer__copy">&#169; 2025 Nifad Hasan Eimu. All rights reserved</p>
     </footer>
 
     <!--===== SCROLL REVEAL =====-->
@@ -441,7 +494,6 @@
     <script src="main.js"></script>
 
     <!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </body>
 </html>
-
