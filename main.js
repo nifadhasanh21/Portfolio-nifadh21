@@ -278,7 +278,7 @@ const projectData = {
     1: {
         title: "Portfolio Website",
         description: "A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my work and skills. This project demonstrates modern web development practices including responsive design, smooth animations, and clean code structure.",
-        technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+        technologies: ["HTML5,  ", "CSS3,  ", "JavaScript,  ", "Responsive Design"],
         features: ["Responsive layout", "Smooth scrolling", "Interactive elements", "Contact form"],
         liveLink: "https://nifad-hasan-h21.github.io/Portfolio-nifadh21/",
         githubLink: "https://github.com/nifad-hasan-h21/Portfolio-nifadh21",
@@ -287,7 +287,7 @@ const projectData = {
     2: {
         title: "Healthcare Management System",
         description: "A comprehensive C-based application for managing patient records, appointments, and medical staff. The system includes features for adding, deleting, searching, and updating records with efficient data management.",
-        technologies: ["C Programming", "Data Structures", "File Handling"],
+        technologies: ["C Programming,  ", "Data Structures,  ", "File Handling"],
         features: ["Patient record management", "Appointment scheduling", "Staff management", "Search functionality"],
         liveLink: "#",
         githubLink: "https://github.com/nifad-hasan-h21/Library-Management-System.",
@@ -296,7 +296,7 @@ const projectData = {
     3: {
         title: "Library Management System",
         description: "A complete library management system built with C programming to handle books, members, and transactions efficiently. The system provides a user-friendly interface for library operations with robust data management capabilities.",
-        technologies: ["C Programming", "Data Structures", "File Management"],
+        technologies: ["C Programming,  ", "Data Structures,  ", "File Management"],
         features: ["Book management", "Member management", "Transaction tracking", "Report generation"],
         liveLink: "#",
         githubLink: "https://github.com/nifad-hasan-h21/Library-Management-System",
@@ -390,3 +390,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
