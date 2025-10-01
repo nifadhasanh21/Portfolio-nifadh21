@@ -1,3 +1,5 @@
+// Enhanced main.js with new features
+
 // MAIN JS
 // Show menu
 const navMenu = document.getElementById('nav-menu'),
@@ -95,7 +97,6 @@ contactForm.addEventListener('submit', function(e) {
     if (name === '' || email === '' || subject === '' || message === '') {
         formMessage.textContent = 'Please fill in all fields.';
         formMessage.className = 'form-message error';
-        formMessage.style.display = 'block';
         return;
     }
     
@@ -104,92 +105,273 @@ contactForm.addEventListener('submit', function(e) {
     if (!emailPattern.test(email)) {
         formMessage.textContent = 'Please enter a valid email address.';
         formMessage.className = 'form-message error';
-        formMessage.style.display = 'block';
         return;
     }
     
     // Show loading state
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
+    submitButton.innerHTML = '<div class="loading"></div>';
     submitButton.disabled = true;
     
     // Send email using EmailJS
-    emailjs.send("Portfolio Contact", "template_afxcr2a", {
-        name: name,
-        email: email,
+    emailjs.send("service_6q5v1wq", "template_8v0n7vq", {
+        from_name: name,
+        from_email: email,
         subject: subject,
-        message: message,
-        date: new Date().toLocaleString()
+        message: message
     })
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
-        formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
+        formMessage.textContent = 'Message sent successfully!';
         formMessage.className = 'form-message success';
-        formMessage.style.display = 'block';
-        
-        // Reset form
         contactForm.reset();
-        
-        // Hide message after 5 seconds
-        setTimeout(() => {
-            formMessage.style.display = 'none';
-        }, 5000);
     }, function(error) {
         console.log('FAILED...', error);
-        formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
+        formMessage.textContent = 'Failed to send message. Please try again.';
         formMessage.className = 'form-message error';
-        formMessage.style.display = 'block';
     })
     .finally(function() {
-        // Restore button state
+        // Reset button state
         submitButton.textContent = originalText;
         submitButton.disabled = false;
     });
 });
-// CV download functionality
-document.getElementById('download-cv').addEventListener('click', async function(e) {
+
+// CV Download functionality
+document.getElementById('download-cv').addEventListener('click', function(e) {
     e.preventDefault();
     
-    const downloadButton = this;
-    const originalText = downloadButton.textContent;
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = 'cv.pdf'; // Replace with actual CV file path
+    link.download = 'CV-Nifad Hasan Eimu.pdf';
+    link.target = '_blank';
     
-    try {
-        // Show loading state
-        downloadButton.classList.add('downloading');
-        downloadButton.textContent = 'Downloading...';
-        
-        // Simulate a small delay for better UX
-        await new Promise(resolve => setTimeout(resolve, 500));
-        
-        // Create a temporary link element
-        const link = document.createElement('a');
-        link.href = 'CV..pdf';
-        link.download = 'Nifad_Hasan_CV..pdf';
-        
-        // Append to body, click, and remove
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        // Show success message briefly
-        downloadButton.textContent = 'Downloaded!';
-        setTimeout(() => {
-            downloadButton.textContent = originalText;
-        }, 2000);
-        
-    } catch (error) {
-        // Show error message
-        downloadButton.textContent = 'Error! Try Again';
-        setTimeout(() => {
-            downloadButton.textContent = originalText;
-        }, 2000);
-        console.error('CV download error:', error);
-    } finally {
-        // Remove loading state
-        downloadButton.classList.remove('downloading');
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
+// Scroll to top functionality
+const scrollTopButton = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+        scrollTopButton.classList.add('visible');
+    } else {
+        scrollTopButton.classList.remove('visible');
     }
 });
+
+scrollTopButton.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// ALWAYS START LIGHT THEME, TOGGLE ONLY WHEN CLICKED
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.getElementById('theme-toggle');
+  if (!themeToggle) return;
+  const themeIcon = themeToggle.querySelector('i');
+
+  // Force light theme every time page loads
+  document.body.classList.remove('dark-theme');
+  themeIcon?.classList.remove('bx-sun');
+  themeIcon?.classList.add('bx-moon');
+
+  // Toggle on click (do NOT save in localStorage)
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    if (document.body.classList.contains('dark-theme')) {
+      themeIcon?.classList.remove('bx-moon');
+      themeIcon?.classList.add('bx-sun');
+    } else {
+      themeIcon?.classList.remove('bx-sun');
+      themeIcon?.classList.add('bx-moon');
+    }
+  });
+});
+
+
+
+// Typed.js initialization
+document.addEventListener('DOMContentLoaded', function() {
+    const typedText = new Typed('#typed-text', {
+    strings: ['Nifad Hasan Eimu'], // new name
+    typeSpeed: 100,
+    backSpeed: 60,
+    loop: false,
+    showCursor: false // hides the cursor completely
+    // cursorChar removed
+});
+
+    
+    const typedRoles = new Typed('#typed-roles', {
+        strings: ['Web Developer', 'Software Engineer', 'Problem Solver'],
+        typeSpeed: 80,
+        backSpeed: 50,
+        loop: true,
+        backDelay: 1500,
+        showCursor: true,
+        cursorChar: '|'
+    });
+});
+
+// Skills filter functionality
+const skillsFilterBtns = document.querySelectorAll('.skills-filter__btn');
+const skillsData = document.querySelectorAll('.skills__data');
+
+skillsFilterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        skillsFilterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        skillsData.forEach(skill => {
+            if (filter === 'all' || skill.getAttribute('data-category') === filter) {
+                skill.style.display = 'flex';
+            } else {
+                skill.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Projects filter functionality
+const projectsFilterBtns = document.querySelectorAll('.projects-filter__btn');
+const projectCards = document.querySelectorAll('.project__card');
+
+projectsFilterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        projectsFilterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        projectCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Project modal functionality
+const projectInfoBtns = document.querySelectorAll('.project__info-btn');
+const projectModal = document.getElementById('project-modal');
+const modalClose = document.getElementById('modal-close');
+const modalBody = document.querySelector('.project-modal__body');
+
+// Project data for modal
+const projectData = {
+    1: {
+        title: "Portfolio Website",
+        description: "A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my work and skills. This project demonstrates modern web development practices including responsive design, smooth animations, and clean code structure.",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+        features: ["Responsive layout", "Smooth scrolling", "Interactive elements", "Contact form"],
+        liveLink: "https://nifad-hasan-h21.github.io/Portfolio-nifadh21/",
+        githubLink: "https://github.com/nifad-hasan-h21/Portfolio-nifadh21",
+        images: ["work1.jpg"]
+    },
+    2: {
+        title: "Healthcare Management System",
+        description: "A comprehensive C-based application for managing patient records, appointments, and medical staff. The system includes features for adding, deleting, searching, and updating records with efficient data management.",
+        technologies: ["C Programming", "Data Structures", "File Handling"],
+        features: ["Patient record management", "Appointment scheduling", "Staff management", "Search functionality"],
+        liveLink: "#",
+        githubLink: "https://github.com/nifad-hasan-h21/Library-Management-System.",
+        images: ["work2.jpg"]
+    },
+    3: {
+        title: "Library Management System",
+        description: "A complete library management system built with C programming to handle books, members, and transactions efficiently. The system provides a user-friendly interface for library operations with robust data management capabilities.",
+        technologies: ["C Programming", "Data Structures", "File Management"],
+        features: ["Book management", "Member management", "Transaction tracking", "Report generation"],
+        liveLink: "#",
+        githubLink: "https://github.com/nifad-hasan-h21/Library-Management-System",
+        images: ["work4.jpg"]
+    }
+};
+
+projectInfoBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        const projectId = this.getAttribute('data-project');
+        const project = projectData[projectId];
+        
+        if (project) {
+            modalBody.innerHTML = `
+                <h2 class="project-modal__title">${project.title}</h2>
+                <p class="project-modal__description">${project.description}</p>
+                
+                <div class="project-modal__details">
+                    <div class="project-modal__section">
+                        <h3>Technologies Used</h3>
+                        <div class="project-modal__tags">
+                            ${project.technologies.map(tech => `<span class="project-modal__tag">${tech}</span>`).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="project-modal__section">
+                        <h3>Key Features</h3>
+                        <ul class="project-modal__features">
+                            ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="project-modal__links">
+                        ${project.liveLink !== '#' ? `<a href="${project.liveLink}" class="button" target="_blank">Live Demo</a>` : ''}
+                        <a href="${project.githubLink}" class="button button--light" target="_blank">View Code</a>
+                    </div>
+                </div>
+            `;
+            
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+modalClose.addEventListener('click', function() {
+    projectModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+projectModal.addEventListener('click', function(e) {
+    if (e.target === projectModal) {
+        projectModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Animate skill bars on scroll
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skills__percentage-bar');
+    
+    skillBars.forEach(bar => {
+        const percentage = bar.getAttribute('data-percentage');
+        const rect = bar.getBoundingClientRect();
+        const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
+        
+        if (isInViewport && !bar.classList.contains('animated')) {
+            bar.style.setProperty('--target-width', `${percentage}%`);
+            bar.classList.add('animated');
+        }
+    });
+}
+
+window.addEventListener('scroll', animateSkillBars);
+window.addEventListener('load', animateSkillBars);
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -202,52 +384,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             window.scrollTo({
-                top: targetElement.offsetTop - 70,
+                top: targetElement.offsetTop - 50,
                 behavior: 'smooth'
             });
         }
     });
 });
-
-// Animate skill bars when they come into view
-function animateSkillBars() {
-    const skillBars = document.querySelectorAll('.skills__percentage-bar');
-    
-    skillBars.forEach(bar => {
-        // Store the original width
-        const originalWidth = bar.style.width;
-        
-        // Reset to 0 for animation
-        bar.style.width = '0';
-        
-        // Animate to the original width
-        setTimeout(() => {
-            bar.style.width = originalWidth;
-        }, 100);
-    });
-}
-
-// Initialize skill bar animation when skills section is in view
-const skillsSection = document.getElementById('skills');
-if (skillsSection) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateSkillBars();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    observer.observe(skillsSection);
-}
-
-// Initialize skill bars with their correct widths on page load
-document.addEventListener('DOMContentLoaded', function() {
-    const skillBars = document.querySelectorAll('.skills__percentage-bar');
-    skillBars.forEach(bar => {
-        // Remove any inline styles that might interfere
-        bar.removeAttribute('style');
-    });
-});
-
