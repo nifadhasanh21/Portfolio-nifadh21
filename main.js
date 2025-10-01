@@ -1,392 +1,499 @@
-// Enhanced main.js with new features
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nifad Hasan Eimu - Web Developer Portfolio">
+    <meta name="keywords" content="web developer, portfolio, software engineer, HTML, CSS, JavaScript">
+    <meta name="author" content="Nifad Hasan Eimu">
 
-// MAIN JS
-// Show menu
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
+    <link rel="stylesheet" href="styles.css" />
 
-// Menu Show
-if(navToggle){
-    navToggle.addEventListener('click', () =>{
-        navMenu.classList.add('show')
-    })
-}
+    <!-- =====BOX ICONS===== -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
-// Menu Hidden
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove('show')
-    })
-}
+    <link rel="shortcut icon" href="cv.png" type="image/png">
 
-// Remove menu mobile
-const navLink = document.querySelectorAll('.nav__link')
+    <!-- ===== AOS ANIMATION ===== -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show')
-}
-navLink.forEach(n => n.addEventListener('click', linkAction))
+    <!-- ===== TYPED JS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-// Scroll sections active link
-const sections = document.querySelectorAll('section[id]')
+    <title>Nifad Hasan Eimu | Web Developer</title>
+  </head>
+  <body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+      <nav class="nav bd-grid">
+        <div>
+          <a href="#" class="nav__logo">Nifad Hasan Eimu</a>
+        </div>
 
-function scrollActive(){
-    const scrollY = window.pageYOffset
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="#about" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="#skills" class="nav__link">Skills</a>
+            </li>
+            <li class="nav__item">
+              <a href="#projects" class="nav__link">Projects</a>
+            </li>
+            <li class="nav__item">
+              <a href="#education" class="nav__link">Education</a>
+            </li>
+            <li class="nav__item">
+              <a href="#contact" class="nav__link">Contact</a>
+            </li>
+          </ul>
+        </div>
 
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
+        <div class="nav__actions">
+          <!-- Theme Toggle -->
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="bx bx-moon"></i>
+          </button>
+          
+          <!-- Mobile Menu Toggle -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="bx bx-menu"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active')
-        }
-    })
-}
-window.addEventListener('scroll', scrollActive)
+    <main class="l-main">
+      <!--===== HOME =====-->
+      <section class="home bd-grid" id="home">
+        <div class="home__data">
+          <h1 class="home__title">
+            Hi,<br />I'm <span class="home__title-color" id="typed-text"></span><br />
+            <span id="typed-roles"></span>
+          </h1>
+          <p class="home__description">Crafting digital experiences with code and creativity</p>
 
-// Scroll reveal animation
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2000,
-    delay: 200,
-//     reset: true
-});
+          <div class="home__buttons">
+            <a href="#contact" class="button">Contact Me</a>
+            <a href="#projects" class="button button--light">View Projects</a>
+          </div>
+        </div>
 
-sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
-sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
-sr.reveal('.home__social-icon',{ interval: 200}); 
-sr.reveal('.skills__data, .projects__card, .contact__input',{interval: 200}); 
+        <div class="home__social">
+          <a href="https://www.linkedin.com/in/nifad-hasan-h21/" 
+             class="home__social-icon" target="_blank" aria-label="LinkedIn">
+             <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/sick_m0dee/" 
+             class="home__social-icon" target="_blank" aria-label="Instagram">
+             <i class="bx bxl-instagram"></i>
+          </a>
+          <a href="https://github.com/nifad-hasan-h21" 
+             class="home__social-icon" target="_blank" aria-label="GitHub">
+             <i class="bx bxl-github"></i>
+          </a>
+        </div>
 
-// Initialize AOS animation
-document.addEventListener('DOMContentLoaded', function() {
-    AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
-});
-
-// Initialize EmailJS with your Public Key
-document.addEventListener('DOMContentLoaded', function() {
-    emailjs.init("_DWpHXao4PLnaotHF");
-    console.log("EmailJS initialized successfully");
-});
-
-// Contact form functionality
-const contactForm = document.getElementById('contact-form');
-const formMessage = document.getElementById('form-message');
-
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.querySelector('input[name="name"]').value;
-    const email = document.querySelector('input[name="email"]').value;
-    const subject = document.querySelector('input[name="subject"]').value;
-    const message = document.querySelector('textarea[name="message"]').value;
-    
-    // Simple validation
-    if (name === '' || email === '' || subject === '' || message === '') {
-        formMessage.textContent = 'Please fill in all fields.';
-        formMessage.className = 'form-message error';
-        return;
-    }
-    
-    // Email validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        formMessage.textContent = 'Please enter a valid email address.';
-        formMessage.className = 'form-message error';
-        return;
-    }
-    
-    // Show loading state
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.innerHTML = '<div class="loading"></div>';
-    submitButton.disabled = true;
-    
-    // Send email using EmailJS
-    emailjs.send("Portfolio Contact", "template_afxcr2a", {
-        from_name: name,
-        from_email: email,
-        subject: subject,
-        message: message
-    })
-    .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        formMessage.textContent = 'Message sent successfully!';
-        formMessage.className = 'form-message success';
-        contactForm.reset();
-    }, function(error) {
-        console.log('FAILED...', error);
-        formMessage.textContent = 'Failed to send message. Please try again.';
-        formMessage.className = 'form-message error';
-    })
-    .finally(function() {
-        // Reset button state
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-    });
-});
-
-// CV Download functionality
-document.getElementById('download-cv').addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // Create a temporary link element
-    const link = document.createElement('a');
-    link.href = '/CV..pdf'; // Replace with actual CV file path
-    link.download = 'CV-Nifad Hasan Eimu.pdf';
-    link.target = '_blank';
-    
-    // Trigger download
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-});
-
-// Scroll to top functionality
-const scrollTopButton = document.getElementById('scroll-top');
-
-window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 300) {
-        scrollTopButton.classList.add('visible');
-    } else {
-        scrollTopButton.classList.remove('visible');
-    }
-});
-
-scrollTopButton.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// ALWAYS START LIGHT THEME, TOGGLE ONLY WHEN CLICKED
-document.addEventListener('DOMContentLoaded', () => {
-  const themeToggle = document.getElementById('theme-toggle');
-  if (!themeToggle) return;
-  const themeIcon = themeToggle.querySelector('i');
-
-  // Force light theme every time page loads
-  document.body.classList.remove('dark-theme');
-  themeIcon?.classList.remove('bx-sun');
-  themeIcon?.classList.add('bx-moon');
-
-  // Toggle on click (do NOT save in localStorage)
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    if (document.body.classList.contains('dark-theme')) {
-      themeIcon?.classList.remove('bx-moon');
-      themeIcon?.classList.add('bx-sun');
-    } else {
-      themeIcon?.classList.remove('bx-sun');
-      themeIcon?.classList.add('bx-moon');
-    }
-  });
-});
-
-
-
-// Typed.js initialization
-document.addEventListener('DOMContentLoaded', function() {
-    const typedText = new Typed('#typed-text', {
-    strings: ['Nifad Hasan Eimu'], // new name
-    typeSpeed: 100,
-    backSpeed: 60,
-    loop: false,
-    showCursor: false // hides the cursor completely
-    // cursorChar removed
-});
-
-    
-    const typedRoles = new Typed('#typed-roles', {
-        strings: ['Web Developer', 'Software Engineer', 'Problem Solver'],
-        typeSpeed: 80,
-        backSpeed: 50,
-        loop: true,
-        backDelay: 1500,
-        showCursor: true,
-        cursorChar: '|'
-    });
-});
-
-// Skills filter functionality
-const skillsFilterBtns = document.querySelectorAll('.skills-filter__btn');
-const skillsData = document.querySelectorAll('.skills__data');
-
-skillsFilterBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        // Remove active class from all buttons
-        skillsFilterBtns.forEach(b => b.classList.remove('active'));
-        // Add active class to clicked button
-        this.classList.add('active');
+        <div class="home__img">
+          <svg
+            class="home__blob"
+            viewBox="0 0 479 467"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <mask id="mask0" mask-type="alpha">
+              <path
+                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+              />
+            </mask>
+            <g mask="url(#mask0)">
+              <path
+                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+              />
+              <image
+                class="home__blob-img"
+                x="50"
+                y="60"
+                href="IMG_2895.png"
+                alt="Nifad Hasan Eimu"
+              />
+            </g>
+          </svg>
+        </div>
         
-        const filter = this.getAttribute('data-filter');
-        
-        skillsData.forEach(skill => {
-            if (filter === 'all' || skill.getAttribute('data-category') === filter) {
-                skill.style.display = 'flex';
-            } else {
-                skill.style.display = 'none';
-            }
-        });
-    });
-});
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+          <div class="scroll-indicator__text">Scroll Down</div>
+          <div class="scroll-indicator__line"></div>
+        </div>
+      </section>
 
-// Projects filter functionality
-const projectsFilterBtns = document.querySelectorAll('.projects-filter__btn');
-const projectCards = document.querySelectorAll('.project__card');
+      <!--===== ABOUT =====-->
+      <section class="about section" id="about">
+        <h2 class="section-title">About</h2>
 
-projectsFilterBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        // Remove active class from all buttons
-        projectsFilterBtns.forEach(b => b.classList.remove('active'));
-        // Add active class to clicked button
-        this.classList.add('active');
-        
-        const filter = this.getAttribute('data-filter');
-        
-        projectCards.forEach(card => {
-            if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-});
+        <div class="about__container bd-grid">
+          <div class="about__img" data-aos="fade-right">
+            <img src="about.jpg" alt="Nifad Hasan" />
+          </div>
 
-// Project modal functionality
-const projectInfoBtns = document.querySelectorAll('.project__info-btn');
-const projectModal = document.getElementById('project-modal');
-const modalClose = document.getElementById('modal-close');
-const modalBody = document.querySelector('.project-modal__body');
+          <div data-aos="fade-left">
+            <h2 class="about__subtitle">I'm Nifad Hasan Eimu</h2>
+            <p class="about__text">
+              I am a passionate Software Engineering student at Daffodil International University, 
+              currently in my 4th semester. Alongside my academic journey, I'm developing my 
+              skills in web development, data structures, algorithms, and software design.  
+              <br><br>
+              I enjoy working on creative coding projects—ranging from building portfolio websites 
+              and small applications to larger structured programming projects. I have hands-on 
+              experience with <b>C programming, HTML, CSS, JavaScript, and SQL</b>, and I am 
+              continuously learning modern technologies like the <b>MERN stack</b> and <b>Java.</b>  
+              <br><br>
+              Beyond academics, I love exploring problem-solving, working on projects that 
+              challenge me, and growing into a well-rounded software engineer. My long-term goal 
+              is to contribute to impactful software solutions while also exploring freelancing and 
+              innovative product development.
+            </p>
+            <div class="about__buttons">
+              <a href="#contact" class="button">Hire Me</a>
+              <a href="#" class="button button--light" id="download-cv">Download CV</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-// Project data for modal
-const projectData = {
-    1: {
-        title: "Portfolio Website",
-        description: "A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my work and skills. This project demonstrates modern web development practices including responsive design, smooth animations, and clean code structure.",
-        technologies: ["HTML5,  ", "CSS3,  ", "JavaScript,  ", "Responsive Design  "],
-        features: ["Responsive layout", "Smooth scrolling", "Interactive elements", "Contact form"],
-        liveLink: "https://nifad-hasan-h21.github.io/Portfolio-nifadh21/",
-        githubLink: "https://github.com/nifad-hasan-h21/Portfolio-nifadh21",
-        images: ["work1.jpg"]
-    },
-    2: {
-        title: "Healthcare Management System",
-        description: "A comprehensive C-based application for managing patient records, appointments, and medical staff. The system includes features for adding, deleting, searching, and updating records with efficient data management.",
-        technologies: ["C Programming,  ", "Data Structures,  ", "File Handling"],
-        features: ["Patient record management", "Appointment scheduling", "Staff management", "Search functionality"],
-        liveLink: "#",
-        githubLink: "https://github.com/nifad-hasan-h21/Library-Management-System.",
-        images: ["work2.jpg"]
-    },
-    3: {
-        title: "Library Management System",
-        description: "A complete library management system built with C programming to handle books, members, and transactions efficiently. The system provides a user-friendly interface for library operations with robust data management capabilities.",
-        technologies: ["C Programming,  ", "Data Structures,  ", "File Management"],
-        features: ["Book management", "Member management", "Transaction tracking", "Report generation"],
-        liveLink: "#",
-        githubLink: "https://github.com/nifad-hasan-h21/Library-Management-System",
-        images: ["work4.jpg"]
-    }
-};
+      <!--===== SKILLS =====-->
+      <section class="skills section" id="skills">
+        <h2 class="section-title">Skills</h2>
 
-projectInfoBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        const projectId = this.getAttribute('data-project');
-        const project = projectData[projectId];
-        
-        if (project) {
-            modalBody.innerHTML = `
-                <h2 class="project-modal__title">${project.title}</h2>
-                <p class="project-modal__description">${project.description}</p>
-                
-                <div class="project-modal__details">
-                    <div class="project-modal__section">
-                        <h3>Technologies Used</h3>
-                        <div class="project-modal__tags">
-                            ${project.technologies.map(tech => `<span class="project-modal__tag">${tech}</span>`).join('')}
-                        </div>
-                    </div>
-                    
-                    <div class="project-modal__section">
-                        <h3>Key Features</h3>
-                        <ul class="project-modal__features">
-                            ${project.features.map(feature => `<li>${feature}</li>`).join('')}
-                        </ul>
-                    </div>
-                    
-                    <div class="project-modal__links">
-                        ${project.liveLink !== '#' ? `<a href="${project.liveLink}" class="button" target="_blank">Live Demo</a>` : ''}
-                        <a href="${project.githubLink}" class="button button--light" target="_blank">View Code</a>
-                    </div>
-                </div>
-            `;
+        <div class="skills__container bd-grid">
+          <div data-aos="fade-up">
+            <h2 class="skills__subtitle">Profesional Skills</h2>
+            <p class="skills__text">
+              As a Software Engineering student, I have been building a strong foundation in 
+              both programming and web technologies. My skills include working with 
+              <b>C, HTML, CSS, JavaScript, and SQL</b>, along with a growing interest in 
+              modern stacks like <b>MERN Stack</b> and <b>Java.</b>  
+              <br><br>
+              I enjoy problem-solving, creating structured and efficient code, and designing 
+              user-friendly web applications. With every project, I aim to sharpen my logical 
+              thinking, improve code quality, and move closer to becoming a professional 
+              software engineer.
+            </p>
             
-            projectModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    });
-});
+            <!-- Skills Filter -->
+            <div class="skills-filter">
+              <button class="skills-filter__btn active" data-filter="all">All</button>
+              <button class="skills-filter__btn" data-filter="programming">Programming</button>
+              <button class="skills-filter__btn" data-filter="web">Web Development</button>
+              <button class="skills-filter__btn" data-filter="tools">Tools</button>
+            </div>
+            
+            <div class="skills-list">
+              <div class="skills__data" data-category="programming">
+                <div class="skills__names">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" 
+                       alt="C Logo" class="skills__icon" style="width:24px; height:24px;"/>
+                  <span class="skills__name">C Programming</span>
+                </div>
+                <span class="skills__percentage">90%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__c" data-percentage="90"></div>
+                </div>
+              </div>
 
-modalClose.addEventListener('click', function() {
-    projectModal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-});
+              <div class="skills__data" data-category="web">
+                <div class="skills__names">
+                  <i class="bx bxl-html5 skills__icon"></i>
+                  <span class="skills__name">HTML5</span>
+                </div>
+                <span class="skills__percentage">80%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__html" data-percentage="80"></div>
+                </div>
+              </div>
 
-projectModal.addEventListener('click', function(e) {
-    if (e.target === projectModal) {
-        projectModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-});
+              <div class="skills__data" data-category="web">
+                <div class="skills__names">
+                  <i class="bx bxl-css3 skills__icon"></i>
+                  <span class="skills__name">CSS3</span>
+                </div>
+                <span class="skills__percentage">70%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__css" data-percentage="70"></div>
+                </div>
+              </div>
 
-// Animate skill bars on scroll
-function animateSkillBars() {
-    const skillBars = document.querySelectorAll('.skills__percentage-bar');
+              <div class="skills__data" data-category="web">
+                <div class="skills__names">
+                  <i class="bx bxl-javascript skills__icon"></i>
+                  <span class="skills__name">JavaScript</span>
+                </div>
+                <span class="skills__percentage">35%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__js" data-percentage="35"></div>
+                </div>
+              </div>
+
+              <div class="skills__data" data-category="tools">
+                <div class="skills__names">
+                  <i class="bx bx-data skills__icon"></i>
+                  <span class="skills__name">SQL</span>
+                </div>
+                <span class="skills__percentage">70%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__sql" data-percentage="70"></div>
+                </div>
+              </div>
+
+              <div class="skills__data" data-category="tools">
+                <div class="skills__names">
+                  <i class="bx bxs-paint skills__icon"></i>
+                  <span class="skills__name">UX/UI</span>
+                </div>
+                <span class="skills__percentage">80%</span>
+                <div class="skills__bar">
+                  <div class="skills__percentage-bar skills__ux" data-percentage="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div data-aos="fade-left">
+            <img src="work3.jpg" alt="Skills illustration" class="skills__img" />
+          </div>
+        </div>
+      </section>
+
+      <!--===== PROJECTS =====-->
+      <section class="projects section" id="projects">
+        <h2 class="section-title">Projects</h2>
+        
+        <!-- Projects Filter -->
+        <div class="projects-filter">
+          <button class="projects-filter__btn active" data-filter="all">All</button>
+          <button class="projects-filter__btn" data-filter="web">Web</button>
+          <button class="projects-filter__btn" data-filter="c">C Programming</button>
+          <button class="projects-filter__btn" data-filter="javascript">JavaScript</button>
+        </div>
+
+        <div class="projects__container bd-grid">
+          <div class="project__card" data-aos="fade-up" data-category="web javascript">
+            <div class="project__img">
+              <img src="work1.jpg" alt="Project 1" />
+              <div class="project__overlay">
+                <div class="project__links">
+                  <a href="https://nifad-hasan-h21.github.io/Portfolio-nifadh21/" class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
+                  <a href="https://github.com/nifad-hasan-h21/Portfolio-nifadh21" class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
+                  <button class="project__link project__info-btn" data-project="1"><i class="bx bx-info-circle"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="project__info">
+              <h3 class="project__title">Portfolio Website</h3>
+              <p class="project__description">A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my work and skills.</p>
+              <div class="project__tags">
+                <span class="project__tag">HTML</span>
+                <span class="project__tag">CSS</span>
+                <span class="project__tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project__card" data-aos="fade-up" data-aos-delay="100" data-category="c">
+            <div class="project__img">
+              <img src="work2.jpg" alt="Healthcare Management System" />
+              <div class="project__overlay">
+                <div class="project__links">
+                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System." class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
+                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System." class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
+                  <button class="project__link project__info-btn" data-project="2"><i class="bx bx-info-circle"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="project__info">
+              <h3 class="project__title">Healthcare Management System</h3>
+              <p class="project__description">A C-based application for managing patient records, appointments, and medical staff with features like add, delete, and search.</p>
+              <div class="project__tags">
+                <span class="project__tag">C Programming</span>
+                <span class="project__tag">Data Structures</span>
+                <span class="project__tag">File Handling</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project__card" data-aos="fade-up" data-aos-delay="200" data-category="c">
+            <div class="project__img">
+              <img src="work4.jpg" alt="Library Management System" />
+              <div class="project__overlay">
+                <div class="project__links">
+                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System" class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
+                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System" class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
+                  <button class="project__link project__info-btn" data-project="3"><i class="bx bx-info-circle"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="project__info">
+              <h3 class="project__title">Library Management System</h3>
+              <p class="project__description">A comprehensive library management system built with C programming to handle books, members, and transactions efficiently.</p>
+              <div class="project__tags">
+                <span class="project__tag">C Programming</span>
+                <span class="project__tag">Data Structures</span>
+                <span class="project__tag">File Management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--===== EDUCATION =====-->
+      <section class="education section" id="education">
+        <h2 class="section-title">Education</h2>
+
+        <div class="education__container bd-grid">
+          <div class="education__item" data-aos="fade-right">
+            <div class="education__header">
+              <i class="bx bxs-graduation education__icon"></i>
+              <div>
+                <h3 class="education__title">B.Sc. in Software Engineering</h3>
+                <span class="education__subtitle">Daffodil International University</span>
+              </div>
+              <span class="education__year">2024 - Present</span>
+            </div>
+            <p class="education__description">
+              Currently in my 4th semester, focusing on programming fundamentals, data structures, 
+              algorithms, and web development technologies.
+            </p>
+          </div>
+
+          <div class="education__item" data-aos="fade-left">
+            <div class="education__header">
+              <i class="bx bxs-certification education__icon"></i>
+              <div>
+                <h3 class="education__title">Web Development Certification</h3>
+                <span class="education__subtitle">Online Course</span>
+              </div>
+              <span class="education__year">2025</span>
+            </div>
+            <p class="education__description">
+              Completed a comprehensive web development course covering HTML, CSS, JavaScript, 
+              and responsive design principles.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--===== CONTACT =====-->
+      <section class="contact section" id="contact">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact__container bd-grid">
+          <div class="contact__info" data-aos="fade-right">
+            <h3 class="contact__subtitle">Let's talk about everything!</h3>
+            <p class="contact__text">Feel free to reach out for collaborations or just a friendly hello</p>
+            
+            <div class="contact__details">
+              <div class="contact__detail">
+                <i class="bx bx-envelope contact__icon"></i>
+                <div>
+                  <span class="contact__label">Email</span>
+                  <span class="contact__value">nifadhasanh21@gmail.com</span>
+                </div>
+              </div>
+              
+              <div class="contact__detail">
+                <i class="bx bx-phone contact__icon"></i>
+                <div>
+                  <span class="contact__label">Phone</span>
+                  <span class="contact__value">+880 1820-068979</span>
+                </div>
+              </div>
+              
+              <div class="contact__detail">
+                <i class="bx bx-map contact__icon"></i>
+                <div>
+                  <span class="contact__label">Location</span>
+                  <span class="contact__value">Dhaka, Bangladesh</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form action="#" class="contact__form" id="contact-form" data-aos="fade-left">
+            <div class="contact__inputs">
+              <input type="text" placeholder="Name" class="contact__input" name="name" required />
+              <input type="email" placeholder="Email" class="contact__input" name="email" required />
+            </div>
+            <input type="text" placeholder="Subject" class="contact__input" name="subject" required />
+            <textarea
+              name="message"
+              cols="0"
+              rows="10"
+              class="contact__input"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit" class="contact__button button">Send Message</button>
+            <div id="form-message" class="form-message"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!--===== PROJECT MODAL =====-->
+    <div class="project-modal" id="project-modal">
+      <div class="project-modal__content">
+        <button class="project-modal__close" id="modal-close">
+          <i class="bx bx-x"></i>
+        </button>
+        <div class="project-modal__body">
+          <!-- Content will be loaded dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!--===== SCROLL TO TOP =====-->
+    <button class="scroll-top" id="scroll-top">
+      <i class="bx bx-chevron-up"></i>
+    </button>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+      <p class="footer__title">Nifad Hasan Eimu</p>
+      <div class="footer__social">
+        <a href="https://www.linkedin.com/in/nifad-hasan-h21/" 
+           class="footer__icon" target="_blank">
+           <i class="bx bxl-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/sick_m0dee/" 
+           class="footer__icon" target="_blank">
+           <i class="bx bxl-instagram"></i>
+        </a>
+        <a href="https://github.com/nifad-hasan-h21" 
+           class="footer__icon" target="_blank">
+           <i class="bx bxl-github"></i>
+        </a>
+      </div>
+      <p class="footer__copy">&#169; 2025 Nifad Hasan Eimu. All rights reserved</p>
+    </footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
     
-    skillBars.forEach(bar => {
-        const percentage = bar.getAttribute('data-percentage');
-        const rect = bar.getBoundingClientRect();
-        const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
-        
-        if (isInViewport && !bar.classList.contains('animated')) {
-            bar.style.setProperty('--target-width', `${percentage}%`);
-            bar.classList.add('animated');
-        }
-    });
-}
+    <!--===== AOS ANIMATION =====-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-window.addEventListener('scroll', animateSkillBars);
-window.addEventListener('load', animateSkillBars);
+    <!--===== MAIN JS =====-->
+    <script src="main.js"></script>
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 50,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  </body>
+</html>
