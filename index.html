@@ -3,9 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Nifad Hasan Eimu - Web Developer Portfolio">
-    <meta name="keywords" content="web developer, portfolio, software engineer, HTML, CSS, JavaScript">
-    <meta name="author" content="Nifad Hasan Eimu">
+    <meta
+      name="description"
+      content="Official portfolio of Nifad Hasan Eimu — Software Engineering student and web developer skilled in C, HTML, CSS, JavaScript, and modern web technologies."
+    />
+    <meta
+      name="keywords"
+      content="Nifad Hasan, Nifad Hasan Eimu, Software Engineer, Web Developer, Daffodil International University, Portfolio, HTML, CSS, JavaScript, C Programming, MERN Stack"
+    />
+    <meta name="author" content="Nifad Hasan Eimu" />
+    <meta
+      property="og:title"
+      content="Nifad Hasan Eimu | Software Engineering Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Explore the projects, skills, and journey of Nifad Hasan Eimu — aspiring software engineer and web developer."
+    />
+    <meta property="og:image" content="https://www.nifadhasan.com/about.jpg" />
+    <meta property="og:url" content="https://www.nifadhasan.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="stylesheet" href="styles.css" />
 
@@ -15,13 +32,48 @@
       rel="stylesheet"
     />
 
-    <link rel="shortcut icon" href="cv.png" type="image/png">
+    <link rel="shortcut icon" href="cv.png" type="image/png" />
 
     <!-- ===== AOS ANIMATION ===== -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- ===== TYPED JS ===== -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nifad Hasan Eimu",
+        "alternateName": "Nifad Hasan",
+        "jobTitle": "Software Engineering Student & Web Developer",
+        "url": "https://www.nifadhasan.com/",
+        "image": [
+          "https://www.nifadhasan.com/about.jpg",
+          "https://www.nifadhasan.com/images/nifad1.jpg",
+          "https://www.nifadhasan.com/images/nifad2.jpg",
+          "https://www.nifadhasan.com/images/nifad3.jpg"
+        ],
+        "description": "Passionate Software Engineering student at Daffodil International University specializing in web development, data structures, and software design.",
+        "sameAs": [
+          "https://www.linkedin.com/in/nifadhasanh21/",
+          "https://github.com/nifadhasanh21",
+          "https://www.instagram.com/nifad_hasan_h21/",
+          "https://www.nifadhasan.com/"
+        ],
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Daffodil International University"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dhaka",
+          "addressCountry": "Bangladesh"
+        },
+        "email": "mailto:nifadhasanh21@gmail.com"
+      }
+    </script>
 
     <title>Nifad Hasan Eimu | Web Developer</title>
   </head>
@@ -58,10 +110,14 @@
 
         <div class="nav__actions">
           <!-- Theme Toggle -->
-          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle theme"
+          >
             <i class="bx bx-moon"></i>
           </button>
-          
+
           <!-- Mobile Menu Toggle -->
           <div class="nav__toggle" id="nav-toggle">
             <i class="bx bx-menu"></i>
@@ -75,10 +131,13 @@
       <section class="home bd-grid" id="home">
         <div class="home__data">
           <h1 class="home__title">
-            Hi,<br />I'm <span class="home__title-color" id="typed-text"></span><br />
+            Hi,<br />I'm <span class="home__title-color" id="typed-text"></span
+            ><br />
             <span id="typed-roles"></span>
           </h1>
-          <p class="home__description">Crafting digital experiences with code and creativity</p>
+          <p class="home__description">
+            Crafting digital experiences with code and creativity
+          </p>
 
           <div class="home__buttons">
             <a href="#contact" class="button">Contact Me</a>
@@ -87,17 +146,29 @@
         </div>
 
         <div class="home__social">
-          <a href="https://www.linkedin.com/in/nifad-hasan-h21/" 
-             class="home__social-icon" target="_blank" aria-label="LinkedIn">
-             <i class="bx bxl-linkedin"></i>
+          <a
+            href="https://www.linkedin.com/in/nifad-hasan-h21/"
+            class="home__social-icon"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="bx bxl-linkedin"></i>
           </a>
-          <a href="https://www.instagram.com/sick_m0dee/" 
-             class="home__social-icon" target="_blank" aria-label="Instagram">
-             <i class="bx bxl-instagram"></i>
+          <a
+            href="https://www.instagram.com/sick_m0dee/"
+            class="home__social-icon"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <i class="bx bxl-instagram"></i>
           </a>
-          <a href="https://github.com/nifad-hasan-h21" 
-             class="home__social-icon" target="_blank" aria-label="GitHub">
-             <i class="bx bxl-github"></i>
+          <a
+            href="https://github.com/nifad-hasan-h21"
+            class="home__social-icon"
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <i class="bx bxl-github"></i>
           </a>
         </div>
 
@@ -127,7 +198,7 @@
             </g>
           </svg>
         </div>
-        
+
         <!-- Scroll Indicator -->
         <div class="scroll-indicator">
           <div class="scroll-indicator__text">Scroll Down</div>
@@ -147,23 +218,28 @@
           <div data-aos="fade-left">
             <h2 class="about__subtitle">I'm Nifad Hasan Eimu</h2>
             <p class="about__text">
-              I am a passionate Software Engineering student at Daffodil International University, 
-              currently in my 4th semester. Alongside my academic journey, I'm developing my 
-              skills in web development, data structures, algorithms, and software design.  
-              <br><br>
-              I enjoy working on creative coding projects—ranging from building portfolio websites 
-              and small applications to larger structured programming projects. I have hands-on 
-              experience with <b>C programming, HTML, CSS, JavaScript, and SQL</b>, and I am 
-              continuously learning modern technologies like the <b>MERN stack</b> and <b>Java.</b>  
-              <br><br>
-              Beyond academics, I love exploring problem-solving, working on projects that 
-              challenge me, and growing into a well-rounded software engineer. My long-term goal 
-              is to contribute to impactful software solutions while also exploring freelancing and 
-              innovative product development.
+              I am a passionate Software Engineering student at Daffodil
+              International University, currently in my 4th semester. Alongside
+              my academic journey, I'm developing my skills in web development,
+              data structures, algorithms, and software design.
+              <br /><br />
+              I enjoy working on creative coding projects—ranging from building
+              portfolio websites and small applications to larger structured
+              programming projects. I have hands-on experience with
+              <b>C programming, HTML, CSS, JavaScript, and SQL</b>, and I am
+              continuously learning modern technologies like the
+              <b>MERN stack</b> and <b>Java.</b> <br /><br />
+              Beyond academics, I love exploring problem-solving, working on
+              projects that challenge me, and growing into a well-rounded
+              software engineer. My long-term goal is to contribute to impactful
+              software solutions while also exploring freelancing and innovative
+              product development.
             </p>
             <div class="about__buttons">
               <a href="#contact" class="button">Hire Me</a>
-              <a href="#" class="button button--light" id="download-cv">Download CV</a>
+              <a href="#" class="button button--light" id="download-cv"
+                >Download CV</a
+              >
             </div>
           </div>
         </div>
@@ -177,35 +253,51 @@
           <div data-aos="fade-up">
             <h2 class="skills__subtitle">Profesional Skills</h2>
             <p class="skills__text">
-              As a Software Engineering student, I have been building a strong foundation in 
-              both programming and web technologies. My skills include working with 
-              <b>C, HTML, CSS, JavaScript, and SQL</b>, along with a growing interest in 
-              modern stacks like <b>MERN Stack</b> and <b>Java.</b>  
-              <br><br>
-              I enjoy problem-solving, creating structured and efficient code, and designing 
-              user-friendly web applications. With every project, I aim to sharpen my logical 
-              thinking, improve code quality, and move closer to becoming a professional 
-              software engineer.
+              As a Software Engineering student, I have been building a strong
+              foundation in both programming and web technologies. My skills
+              include working with
+              <b>C, HTML, CSS, JavaScript, and SQL</b>, along with a growing
+              interest in modern stacks like <b>MERN Stack</b> and <b>Java.</b>
+              <br /><br />
+              I enjoy problem-solving, creating structured and efficient code,
+              and designing user-friendly web applications. With every project,
+              I aim to sharpen my logical thinking, improve code quality, and
+              move closer to becoming a professional software engineer.
             </p>
-            
+
             <!-- Skills Filter -->
             <div class="skills-filter">
-              <button class="skills-filter__btn active" data-filter="all">All</button>
-              <button class="skills-filter__btn" data-filter="programming">Programming</button>
-              <button class="skills-filter__btn" data-filter="web">Web Development</button>
-              <button class="skills-filter__btn" data-filter="tools">Tools</button>
+              <button class="skills-filter__btn active" data-filter="all">
+                All
+              </button>
+              <button class="skills-filter__btn" data-filter="programming">
+                Programming
+              </button>
+              <button class="skills-filter__btn" data-filter="web">
+                Web Development
+              </button>
+              <button class="skills-filter__btn" data-filter="tools">
+                Tools
+              </button>
             </div>
-            
+
             <div class="skills-list">
               <div class="skills__data" data-category="programming">
                 <div class="skills__names">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" 
-                       alt="C Logo" class="skills__icon" style="width:24px; height:24px;"/>
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png"
+                    alt="C Logo"
+                    class="skills__icon"
+                    style="width: 24px; height: 24px"
+                  />
                   <span class="skills__name">C Programming</span>
                 </div>
                 <span class="skills__percentage">90%</span>
                 <div class="skills__bar">
-                  <div class="skills__percentage-bar skills__c" data-percentage="90"></div>
+                  <div
+                    class="skills__percentage-bar skills__c"
+                    data-percentage="90"
+                  ></div>
                 </div>
               </div>
 
@@ -216,7 +308,10 @@
                 </div>
                 <span class="skills__percentage">80%</span>
                 <div class="skills__bar">
-                  <div class="skills__percentage-bar skills__html" data-percentage="80"></div>
+                  <div
+                    class="skills__percentage-bar skills__html"
+                    data-percentage="80"
+                  ></div>
                 </div>
               </div>
 
@@ -227,7 +322,10 @@
                 </div>
                 <span class="skills__percentage">70%</span>
                 <div class="skills__bar">
-                  <div class="skills__percentage-bar skills__css" data-percentage="70"></div>
+                  <div
+                    class="skills__percentage-bar skills__css"
+                    data-percentage="70"
+                  ></div>
                 </div>
               </div>
 
@@ -238,7 +336,10 @@
                 </div>
                 <span class="skills__percentage">35%</span>
                 <div class="skills__bar">
-                  <div class="skills__percentage-bar skills__js" data-percentage="35"></div>
+                  <div
+                    class="skills__percentage-bar skills__js"
+                    data-percentage="35"
+                  ></div>
                 </div>
               </div>
 
@@ -249,7 +350,10 @@
                 </div>
                 <span class="skills__percentage">70%</span>
                 <div class="skills__bar">
-                  <div class="skills__percentage-bar skills__sql" data-percentage="70"></div>
+                  <div
+                    class="skills__percentage-bar skills__sql"
+                    data-percentage="70"
+                  ></div>
                 </div>
               </div>
 
@@ -260,14 +364,21 @@
                 </div>
                 <span class="skills__percentage">80%</span>
                 <div class="skills__bar">
-                  <div class="skills__percentage-bar skills__ux" data-percentage="80"></div>
+                  <div
+                    class="skills__percentage-bar skills__ux"
+                    data-percentage="80"
+                  ></div>
                 </div>
               </div>
             </div>
           </div>
 
           <div data-aos="fade-left">
-            <img src="work3.jpg" alt="Skills illustration" class="skills__img" />
+            <img
+              src="work3.jpg"
+              alt="Skills illustration"
+              class="skills__img"
+            />
           </div>
         </div>
       </section>
@@ -275,30 +386,58 @@
       <!--===== PROJECTS =====-->
       <section class="projects section" id="projects">
         <h2 class="section-title">Projects</h2>
-        
+
         <!-- Projects Filter -->
         <div class="projects-filter">
-          <button class="projects-filter__btn active" data-filter="all">All</button>
+          <button class="projects-filter__btn active" data-filter="all">
+            All
+          </button>
           <button class="projects-filter__btn" data-filter="web">Web</button>
-          <button class="projects-filter__btn" data-filter="c">C Programming</button>
-          <button class="projects-filter__btn" data-filter="javascript">JavaScript</button>
+          <button class="projects-filter__btn" data-filter="c">
+            C Programming
+          </button>
+          <button class="projects-filter__btn" data-filter="javascript">
+            JavaScript
+          </button>
         </div>
 
         <div class="projects__container bd-grid">
-          <div class="project__card" data-aos="fade-up" data-category="web javascript">
+          <div
+            class="project__card"
+            data-aos="fade-up"
+            data-category="web javascript"
+          >
             <div class="project__img">
               <img src="work1.jpg" alt="Project 1" />
               <div class="project__overlay">
                 <div class="project__links">
-                  <a href="https://nifad-hasan-h21.github.io/Portfolio-nifadh21/" class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
-                  <a href="https://github.com/nifad-hasan-h21/Portfolio-nifadh21" class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
-                  <button class="project__link project__info-btn" data-project="1"><i class="bx bx-info-circle"></i></button>
+                  <a
+                    href="https://nifad-hasan-h21.github.io/Portfolio-nifadh21/"
+                    class="project__link"
+                    target="_blank"
+                    ><i class="bx bx-link-external"></i
+                  ></a>
+                  <a
+                    href="https://github.com/nifad-hasan-h21/Portfolio-nifadh21"
+                    class="project__link"
+                    target="_blank"
+                    ><i class="bx bxl-github"></i
+                  ></a>
+                  <button
+                    class="project__link project__info-btn"
+                    data-project="1"
+                  >
+                    <i class="bx bx-info-circle"></i>
+                  </button>
                 </div>
               </div>
             </div>
             <div class="project__info">
               <h3 class="project__title">Portfolio Website</h3>
-              <p class="project__description">A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my work and skills.</p>
+              <p class="project__description">
+                A responsive portfolio website built with HTML, CSS, and
+                JavaScript to showcase my work and skills.
+              </p>
               <div class="project__tags">
                 <span class="project__tag">HTML</span>
                 <span class="project__tag">CSS</span>
@@ -307,20 +446,44 @@
             </div>
           </div>
 
-          <div class="project__card" data-aos="fade-up" data-aos-delay="100" data-category="c">
+          <div
+            class="project__card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-category="c"
+          >
             <div class="project__img">
               <img src="work2.jpg" alt="Healthcare Management System" />
               <div class="project__overlay">
                 <div class="project__links">
-                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System." class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
-                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System." class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
-                  <button class="project__link project__info-btn" data-project="2"><i class="bx bx-info-circle"></i></button>
+                  <a
+                    href="https://github.com/nifad-hasan-h21/Library-Management-System."
+                    class="project__link"
+                    target="_blank"
+                    ><i class="bx bx-link-external"></i
+                  ></a>
+                  <a
+                    href="https://github.com/nifad-hasan-h21/Library-Management-System."
+                    class="project__link"
+                    target="_blank"
+                    ><i class="bx bxl-github"></i
+                  ></a>
+                  <button
+                    class="project__link project__info-btn"
+                    data-project="2"
+                  >
+                    <i class="bx bx-info-circle"></i>
+                  </button>
                 </div>
               </div>
             </div>
             <div class="project__info">
               <h3 class="project__title">Healthcare Management System</h3>
-              <p class="project__description">A C-based application for managing patient records, appointments, and medical staff with features like add, delete, and search.</p>
+              <p class="project__description">
+                A C-based application for managing patient records,
+                appointments, and medical staff with features like add, delete,
+                and search.
+              </p>
               <div class="project__tags">
                 <span class="project__tag">C Programming</span>
                 <span class="project__tag">Data Structures</span>
@@ -329,20 +492,44 @@
             </div>
           </div>
 
-          <div class="project__card" data-aos="fade-up" data-aos-delay="200" data-category="c">
+          <div
+            class="project__card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-category="c"
+          >
             <div class="project__img">
               <img src="work4.jpg" alt="Library Management System" />
               <div class="project__overlay">
                 <div class="project__links">
-                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System" class="project__link" target="_blank"><i class="bx bx-link-external"></i></a>
-                  <a href="https://github.com/nifad-hasan-h21/Library-Management-System" class="project__link" target="_blank"><i class="bx bxl-github"></i></a>
-                  <button class="project__link project__info-btn" data-project="3"><i class="bx bx-info-circle"></i></button>
+                  <a
+                    href="https://github.com/nifad-hasan-h21/Library-Management-System"
+                    class="project__link"
+                    target="_blank"
+                    ><i class="bx bx-link-external"></i
+                  ></a>
+                  <a
+                    href="https://github.com/nifad-hasan-h21/Library-Management-System"
+                    class="project__link"
+                    target="_blank"
+                    ><i class="bx bxl-github"></i
+                  ></a>
+                  <button
+                    class="project__link project__info-btn"
+                    data-project="3"
+                  >
+                    <i class="bx bx-info-circle"></i>
+                  </button>
                 </div>
               </div>
             </div>
             <div class="project__info">
               <h3 class="project__title">Library Management System</h3>
-              <p class="project__description">A comprehensive library management system built with C programming to handle books, members, and transactions efficiently.</p>
+              <p class="project__description">
+                A comprehensive library management system built with C
+                programming to handle books, members, and transactions
+                efficiently.
+              </p>
               <div class="project__tags">
                 <span class="project__tag">C Programming</span>
                 <span class="project__tag">Data Structures</span>
@@ -363,13 +550,16 @@
               <i class="bx bxs-graduation education__icon"></i>
               <div>
                 <h3 class="education__title">B.Sc. in Software Engineering</h3>
-                <span class="education__subtitle">Daffodil International University</span>
+                <span class="education__subtitle"
+                  >Daffodil International University</span
+                >
               </div>
               <span class="education__year">2024 - Present</span>
             </div>
             <p class="education__description">
-              Currently in my 4th semester, focusing on programming fundamentals, data structures, 
-              algorithms, and web development technologies.
+              Currently in my 4th semester, focusing on programming
+              fundamentals, data structures, algorithms, and web development
+              technologies.
             </p>
           </div>
 
@@ -383,8 +573,8 @@
               <span class="education__year">2025</span>
             </div>
             <p class="education__description">
-              Completed a comprehensive web development course covering HTML, CSS, JavaScript, 
-              and responsive design principles.
+              Completed a comprehensive web development course covering HTML,
+              CSS, JavaScript, and responsive design principles.
             </p>
           </div>
         </div>
@@ -397,8 +587,10 @@
         <div class="contact__container bd-grid">
           <div class="contact__info" data-aos="fade-right">
             <h3 class="contact__subtitle">Let's talk about everything!</h3>
-            <p class="contact__text">Feel free to reach out for collaborations or just a friendly hello</p>
-            
+            <p class="contact__text">
+              Feel free to reach out for collaborations or just a friendly hello
+            </p>
+
             <div class="contact__details">
               <div class="contact__detail">
                 <i class="bx bx-envelope contact__icon"></i>
@@ -407,7 +599,7 @@
                   <span class="contact__value">nifadhasanh21@gmail.com</span>
                 </div>
               </div>
-              
+
               <div class="contact__detail">
                 <i class="bx bx-phone contact__icon"></i>
                 <div>
@@ -415,7 +607,7 @@
                   <span class="contact__value">+880 1820-068979</span>
                 </div>
               </div>
-              
+
               <div class="contact__detail">
                 <i class="bx bx-map contact__icon"></i>
                 <div>
@@ -426,12 +618,35 @@
             </div>
           </div>
 
-          <form action="#" class="contact__form" id="contact-form" data-aos="fade-left">
+          <form
+            action="#"
+            class="contact__form"
+            id="contact-form"
+            data-aos="fade-left"
+          >
             <div class="contact__inputs">
-              <input type="text" placeholder="Name" class="contact__input" name="name" required />
-              <input type="email" placeholder="Email" class="contact__input" name="email" required />
+              <input
+                type="text"
+                placeholder="Name"
+                class="contact__input"
+                name="name"
+                required
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                class="contact__input"
+                name="email"
+                required
+              />
             </div>
-            <input type="text" placeholder="Subject" class="contact__input" name="subject" required />
+            <input
+              type="text"
+              placeholder="Subject"
+              class="contact__input"
+              name="subject"
+              required
+            />
             <textarea
               name="message"
               cols="0"
@@ -440,7 +655,9 @@
               placeholder="Your Message"
               required
             ></textarea>
-            <button type="submit" class="contact__button button">Send Message</button>
+            <button type="submit" class="contact__button button">
+              Send Message
+            </button>
             <div id="form-message" class="form-message"></div>
           </form>
         </div>
@@ -468,25 +685,36 @@
     <footer class="footer">
       <p class="footer__title">Nifad Hasan Eimu</p>
       <div class="footer__social">
-        <a href="https://www.linkedin.com/in/nifad-hasan-h21/" 
-           class="footer__icon" target="_blank">
-           <i class="bx bxl-linkedin"></i>
+        <a
+          href="https://www.linkedin.com/in/nifad-hasan-h21/"
+          class="footer__icon"
+          target="_blank"
+        >
+          <i class="bx bxl-linkedin"></i>
         </a>
-        <a href="https://www.instagram.com/sick_m0dee/" 
-           class="footer__icon" target="_blank">
-           <i class="bx bxl-instagram"></i>
+        <a
+          href="https://www.instagram.com/sick_m0dee/"
+          class="footer__icon"
+          target="_blank"
+        >
+          <i class="bx bxl-instagram"></i>
         </a>
-        <a href="https://github.com/nifad-hasan-h21" 
-           class="footer__icon" target="_blank">
-           <i class="bx bxl-github"></i>
+        <a
+          href="https://github.com/nifad-hasan-h21"
+          class="footer__icon"
+          target="_blank"
+        >
+          <i class="bx bxl-github"></i>
         </a>
       </div>
-      <p class="footer__copy">&#169; 2025 Nifad Hasan Eimu. All rights reserved</p>
+      <p class="footer__copy">
+        &#169; 2025 Nifad Hasan Eimu. All rights reserved
+      </p>
     </footer>
 
     <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
-    
+
     <!--===== AOS ANIMATION =====-->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -494,9 +722,9 @@
     <script src="main.js"></script>
 
     <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
   </body>
 </html>
-
-
-
